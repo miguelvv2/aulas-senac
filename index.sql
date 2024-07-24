@@ -1,48 +1,61 @@
-// 
+-------- aula dia 23/07 --------
+
+
+CREATE TABLE Autores (
 
 
 
--- USE ti3k5791_miguelvargas;
+ AutorID int , PRIMARY KEY, AUTO_INCREMENT,
+Nome VARCHAR(50), NOT null ,
+Nacionalidade VARCHAR(50)
 
 
--- CREATE
-CREATE TABLE id clientes 
-( 
- id INT PRIMARY KEY AUTO_INCREMENT,  
- nome VARCHAR(n) NOT NULL,  
- email VARCHAR(n) NOT NULL,  
- telefone VARCHAR(n) NOT NULL,  
- endereço VARCHAR(n),  
- UNIQUE (email,telefone)
+)
+
+
+
+
+USE livraria_s2;
+
+CREATE TABLE Livro (
+    livro_id INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(30) NOT NULL,
+    genero VARCHAR(25),
+    ano_publicacao DATE,
+    autor_id INT,
+    FOREIGN KEY (autor_id) REFERENCES Autores(autor_id)
 );
-CREATE TABLE clientes (
-    -- colunas / tipo de dado  / restricao 
-    idCLientes INT PRIMARY KEY , 
-    nome VARCHAR (100),
-    telefone VARCHAR (100), 
 
 
+CREATE table clientes (
+
+
+    clientes_id int PRIMARY KEY AUTO_INCREMENT,
+    Nome VARCHAR(50)
+    endereço VARCHAR(50)
+    telefone VARCHAR(11)
+)
+
+
+CREATE table emprestimos (
+
+emprestimos_id int PRIMARY kEY AUTO_INCREMENT,
+livro_id int 
+clientes_id int 
+data_emprestimo date 
+data_devolucao date 
+foreign key (livro_id) references livro(livro_id)
+foreign key (clientes_id) references clientes (clientes_id)
+
+)
+CREATE TABLE emprestimos (
+    emprestimos_id INT AUTO_INCREMENT PRIMARY KEY,
+    livro_id INT,
+    clientes_id INT,
+    data_emprestimo DATE,
+    data_devolucao DATE,
+    FOREIGN KEY (livro_id) REFERENCES livro(livro_id),
+    FOREIGN KEY (clientes_id) REFERENCES clientes(clientes_id)
 );
 
--- ALTER  table clientes 
-rename
 
-INSERT into Clientes( idCLientes, nome, email_clientes) VALUES
- (1, 'jonas', 'rafaelsilva@gmail.com')
-  (2, 'lico', 'rafaelsilva@gmail.com')
- (3, 'ben', 'rafaelsilva@gmail.com')
-  ti3k5791_miguelvargas
-
-
-  use  ti3k5791_miguelvargas;
-set email_clientes = ' novo.email@gmail.com '
-where idCLientes = 1;
-
-
-USE ti3k5791_miguelvargas;
-
-SELECT (idCLientes, email_clientes, telefone)
-
-
-FROM Clientes
-where idCLientes => 3 ;
