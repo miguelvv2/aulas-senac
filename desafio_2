@@ -1,1 +1,11 @@
 ---desafio 
+CREATE TABLE carros_aluguel (
+ID_CARRO INT PRIMARY KEY AUTO_INCREMENT, 
+Ano DATE, 
+Preço DECIMAL (10, 2), 
+Aluguel DECIMAL (10,2),
+Nome VARCHAR (30),
+Marca VARCHAR (30),
+Cor VARCHAR (30) 
+
+);
