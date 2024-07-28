@@ -39,3 +39,15 @@ INSERT INTO PRODUTOS( ID_produto, nome, preco, cor, tamanho,  peso, descricao, f
 (1, 'Papel colorido', 15,00, 'misto','pequeno',00,180,'folha colorida de otima qualidade!',5,00 ),
  (2, 'celular', 1200,00, 'cinza', 'médio',00,150, 'um lindo celular cinza',10,00);
  --- micro estudio
+
+DELETE FROM Produtos WHERE ID = 4;
+DELETE FROM Produtos WHERE ID = 7;
+
+-- Adição da coluna SemEstoque
+ALTER TABLE Produtos ADD COLUMN SemEstoque BOOLEAN;
+
+-- Atualização dos registros para identificar que estão sem estoque, exceto o ID 2
+UPDATE Produtos SET SemEstoque = TRUE WHERE ID != 2;
+
+-- Relatório dos 5 primeiros registros de acordo com a ordem de inserção e status da coluna SemEstoque
+SELECT * FROM Produtos ORDER BY ID LIMIT 5
