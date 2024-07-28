@@ -9,3 +9,14 @@ Marca VARCHAR (30),
 Cor VARCHAR (30) 
 
 );
+Insert into carros_aluguel ( ID_CARRO,Ano ,Preço, aluguel, nome, marca, cor)
+Values ( ped-001, 2001, 30000.00, 300.00, 'Uno', 'Fiat','branco'),
+(ped-002 , 2007, 150000.00, 200.00, 'Gol','Volkswagen','vermelho'),
+(ped-003, 2013, 200000.00, 100.00, 'Onix', 'Chevrolet','cinza'),
+(ped-004, 2020, 25000.00, 50.00,' HB20', 'Hyundai', 'preto'),
+(ped-005, 2011,100000.00, 160.00, 'Ka', ' Ford' , 'azul'),
+(ped-006, 2005, 60000.00 , 70.00, 'Kwid','Renault', 'amarelo'),
+(ped-007, 2024, 170000.00, 40.00,'Etios','Toyota' , 'verde'),
+(ped-008, 2012, 230000.00, 250.00,'March', 'Nissan', 'cinza'),
+(ped-009, 2010, 450000.00, 550.00, 'Prisma', 'Chevrolet', 'cinza'),
+(ped-10, 2023, 110000.00, 180.00,'Argo', ' Fiat', 'laranja')
