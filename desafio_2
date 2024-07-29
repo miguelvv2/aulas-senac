@@ -88,17 +88,8 @@ use ativ ;
  
  SELECT carros_aluguel.nome, COUNT (alugueis_carros.id) AS total_pago
  FROM alugueis_carros
+JOIN carros_aluguel ON algueis_carros. carro_id = carros_aluguel.carro_id 
+GROUP BY carros_aluguel.nome
+ORDER BY DESC;
 
-
-SELECT 
-    carros_aluguel.Nome, 
-    COUNT(alugueis_carros.id) AS Total_Alugado
-FROM 
-    alugueis_carros
-JOIN 
-    carros_aluguel ON alugueis_carros.carro_id = carros_aluguel.ID_CARRO
-GROUP BY 
-    carros_aluguel.Nome
-ORDER BY 
-    Total_Alugado DESC;
 
