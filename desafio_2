@@ -20,3 +20,57 @@ Values ( ped-001, 2001, 30000.00, 300.00, 'Uno', 'Fiat','branco'),
 (ped-008, 2012, 230000.00, 250.00,'March', 'Nissan', 'cinza'),
 (ped-009, 2010, 450000.00, 550.00, 'Prisma', 'Chevrolet', 'cinza'),
 (ped-10, 2023, 110000.00, 180.00,'Argo', ' Fiat', 'laranja')
+
+
+-------------------------------------------------------------------------------------------------------------------
+CREATE TABLE alugueis_carros (
+    id INT PRIMARY KEY,
+    carro_id INT,
+    cliente_id INT,
+    data_inicio DATE,
+    data_fim DATE,
+    valor_total DECIMAL(10, 2),
+    FOREIGN KEY (carro_id) REFERENCES carros_aluguel(ID_CARRO),
+    FOREIGN KEY (cliente_id) REFERENCES clientes(ID_CLIENTES)
+);
+
+CREATE TABLE carros_aluguel (
+    ID_CARRO INT PRIMARY KEY, 
+    Ano INT, 
+    Preço DECIMAL(10, 2), 
+    Aluguel DECIMAL(10, 2),
+    Nome VARCHAR(30),
+    Marca VARCHAR(30),
+    Cor VARCHAR(30)
+);
+
+CREATE TABLE clientes (
+    ID_CLIENTES INT AUTO_INCREMENT PRIMARY KEY,
+    Nome VARCHAR(100),
+    Idade INT NOT NULL,
+    Telefone VARCHAR(100),
+    Email VARCHAR(100)
+);
+
+INSERT INTO carros_aluguel (ID_CARRO, Ano, Preço, Aluguel, Nome, Marca, Cor)
+VALUES 
+    (1, 2001, 30000.00, 300.00, 'Uno', 'Fiat', 'branco'),
+    (2, 2007, 150000.00, 200.00, 'Gol', 'Volkswagen', 'vermelho'),
+    (3, 2013, 200000.00, 100.00, 'Onix', 'Chevrolet', 'cinza'),
+    (4, 2020, 25000.00, 50.00, 'HB20', 'Hyundai', 'preto'),
+    (5, 2011, 100000.00, 160.00, 'Ka', 'Ford', 'azul'),
+    (6, 2005, 60000.00, 70.00, 'Kwid', 'Renault', 'amarelo'),
+    (7, 2024, 170000.00, 40.00, 'Etios', 'Toyota', 'verde'),
+    (8, 2012, 230000.00, 250.00, 'March', 'Nissan', 'cinza'),
+    (9, 2010, 450000.00, 550.00, 'Prisma', 'Chevrolet', 'cinza'),
+    (10, 2023, 110000.00, 180.00, 'Argo', 'Fiat', 'laranja');
+
+INSERT INTO clientes (ID_CLIENTES, Nome, Idade, Telefone, Email)
+VALUES 
+    (1, 'João Andrade', 45, '51 597842356', 'jaoandrade@gmail.com'),
+    (2, 'Vitoria Silva', 18, '51 915087564', 'VitoriasilvaS2@gmail.com'),
+    (3, 'Gilmar Nunes', 37, '51 780900147', 'GilmarNuNes@gmail.com'),
+    (4, 'Leila Margarida', 46, '51 670981358', 'leilamargaridas@gmail.com'),
+    (5, 'Miguel Vargas', 20, '51 984106708', 'MiguelVargas@gmail.com');
+
+
