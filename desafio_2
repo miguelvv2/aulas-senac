@@ -73,4 +73,32 @@ VALUES
     (4, 'Leila Margarida', 46, '51 670981358', 'leilamargaridas@gmail.com'),
     (5, 'Miguel Vargas', 20, '51 984106708', 'MiguelVargas@gmail.com');
 
+use ativ;
+-------------
+SELECT cliente_id, valor_total
+FROM alugueis_carros;
+SELECT *
+FROM alugueis_carros;
+--------------------
+SELECT alugueis_carros.cliente_id, SUM(alugueis_carros.valor_total) AS total_gasto
+FROM alugueis_carros JOIN clientes ON alugueis_carros.cliente_id = clientes.clientes_id GROUP BY alugueis_carros.cliente_id;
+
+use ativ ; 
+ 
+ 
+ SELECT carros_aluguel.nome, COUNT (alugueis_carros.id) AS total_pago
+ FROM alugueis_carros
+
+
+SELECT 
+    carros_aluguel.Nome, 
+    COUNT(alugueis_carros.id) AS Total_Alugado
+FROM 
+    alugueis_carros
+JOIN 
+    carros_aluguel ON alugueis_carros.carro_id = carros_aluguel.ID_CARRO
+GROUP BY 
+    carros_aluguel.Nome
+ORDER BY 
+    Total_Alugado DESC;
 
